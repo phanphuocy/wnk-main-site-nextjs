@@ -1,4 +1,26 @@
 /** @type {import('tailwindcss').Config} */
+
+function customContainerWidth({ addComponents }) {
+  addComponents({
+    '.container': {
+      maxWidth: '100%',
+      '@screen sm': {
+        maxWidth: '640px',
+      },
+      '@screen md': {
+        maxWidth: '768px',
+      },
+      '@screen lg': {
+        maxWidth: '1170px',
+      },
+      '@screen xl': {
+        maxWidth: '1170px',
+      },
+    }
+  })
+}
+
+
 module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -14,5 +36,7 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    customContainerWidth,
+  ],
 };
